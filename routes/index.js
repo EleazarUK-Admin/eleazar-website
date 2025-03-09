@@ -3,9 +3,13 @@ const router = express.Router();
 
 // Home page route
 router.get('/', (req, res) => {
+  // Add these lines to debug
+  console.log('Rendering index page');
   res.render('index', { 
     title: 'Eleazar Gonzalez | Cloud Engineer',
-    activeNav: 'home'
+    activeNav: 'home',
+    featuredProjects: [], // These variables are referenced in your EJS template
+    latestPosts: []       // but might not be defined in your route
   });
 });
 

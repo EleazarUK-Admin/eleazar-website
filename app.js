@@ -48,6 +48,16 @@ app.use((err, req, res, next) => {
   });
 });
 
+// In app.js after the error handler
+app.use((err, req, res, next) => {
+  console.error('Error details:', err);
+  console.error(err.stack);
+  res.status(500).render('error', { 
+    title: 'Something went wrong',
+    error: process.env.NODE_ENV === 'development' ? err : {}
+  });
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
