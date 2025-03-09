@@ -1,0 +1,157 @@
+<!-- About Section -->
+<section id="about" class="animate">
+    <div class="container">
+        <div class="section-header">
+            <h2>About Me</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a certified Cloud Consultant and Data Professional with experience in Google Cloud Platform, data pipelines, and digital analytics. Currently working at Acceleration, I help advertisers modernize their business operations with a focus on sustainable growth through seamless integrations of media strategy, data management, privacy practices, and technology investments.</p>
+                <p>With a background in both data engineering and project management, I bring a versatile skill set to the table. I have expertise in developing dynamic data pipelines through Google Cloud Platform, integrating various APIs, and implementing CI/CD methodologies for enterprise repositories.</p>
+                <div class="skills-cloud">
+                    <% ['Google Cloud Platform', 'Python', 'Data Engineering', 'SQL', 'Terraform', 'dbt', 'Apache Beam', 'Apache Airflow', 'Data Visualization'].forEach(skill => { %>
+                        <span class="skill-tag"><%= skill %></span>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="animate">
+    <div class="container">
+        <div class="section-header">
+            <h2>Professional Experience</h2>
+        </div>
+        <div class="timeline">
+            <% const experiences = [
+                {
+                    title: 'Cloud Engineer',
+                    date: 'September 2023 - Present',
+                    company: 'ACCELERATION',
+                    details: [
+                        'Member of a global network of consultants aiding advertisers in modernizing business operations',
+                        'Focus on sustainable growth through seamless integrations of media strategy, data management, privacy practices, and technology investments',
+                        'Delivery of digital analytics value in advertisement by deploying server-side Google Tag Manager and advanced GA4 integration',
+                        'Optimize audiences for cookie-less environments'
+                    ]
+                },
+                {
+                    title: 'Cloud Data Engineer',
+                    date: 'December 2020 - September 2023',
+                    company: 'ESSENCEMEDIACOM',
+                    details: [
+                        'Developed dynamic data pipelines through Google Cloud Platform',
+                        'Ingested and transformed data from various APIs (Google Analytics, Google Ads, Facebook, TikTok)',
+                        'Implemented CI/CD methodologies for enterprise repositories in Github',
+                        'Automated processes from databases and dashboards with versioning control',
+                        'Audited security access and data governance within GCP projects',
+                        'Implemented least privilege access for external connectors'
+                    ]
+                }
+            ]; %>
+            
+            <% experiences.forEach((exp, index) => { %>
+                <div class="timeline-item">
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                        <h3><%= exp.title %></h3>
+                        <div class="timeline-date"><%= exp.date %></div>
+                        <p><strong><%= exp.company %></strong></p>
+                        <ul>
+                            <% exp.details.forEach(detail => { %>
+                                <li><%= detail %></li>
+                            <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/experience" class="btn">View Full Experience</a>
+        </div>
+    </div>
+</section>
+
+<% if (featuredProjects && featuredProjects.length > 0) { %>
+<!-- Featured Projects Section -->
+<section id="featured-projects" class="animate">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <% featuredProjects.forEach(project => { %>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="<%= project.image %>" alt="<%= project.title %>">
+                    </div>
+                    <div class="project-info">
+                        <h3><%= project.title %></h3>
+                        <p><%= project.description %></p>
+                        <div class="project-tech">
+                            <% project.technologies.forEach(tech => { %>
+                                <span class="tech-tag"><%= tech %></span>
+                            <% }) %>
+                        </div>
+                        <div class="project-links">
+                            <% if (project.liveUrl) { %>
+                                <a href="<%= project.liveUrl %>" target="_blank" class="btn btn-sm">Live Demo</a>
+                            <% } %>
+                            <% if (project.githubUrl) { %>
+                                <a href="<%= project.githubUrl %>" target="_blank" class="btn btn-sm btn-outline">GitHub</a>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/projects" class="btn">View All Projects</a>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<% if (latestPosts && latestPosts.length > 0) { %>
+<!-- Latest Blog Posts Section -->
+<section id="latest-posts" class="animate">
+    <div class="container">
+        <div class="section-header">
+            <h2>Latest Blog Posts</h2>
+        </div>
+        <div class="posts-grid">
+            <% latestPosts.forEach(post => { %>
+                <div class="post-card">
+                    <div class="post-meta">
+                        <span class="post-date"><%= new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                    </div>
+                    <h3 class="post-title"><a href="/blog/<%= post.slug %>"><%= post.title %></a></h3>
+                    <p class="post-excerpt"><%= post.excerpt %></p>
+                    <div class="post-tags">
+                        <% post.tags.forEach(tag => { %>
+                            <span class="post-tag"><%= tag %></span>
+                        <% }) %>
+                    </div>
+                    <a href="/blog/<%= post.slug %>" class="read-more">Read More →</a>
+                </div>
+            <% }) %>
+        </div>
+        <div class="text-center mt-4">
+            <a href="/blog" class="btn">Read All Posts</a>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<!-- Contact CTA Section -->
+<section id="contact-cta" class="animate">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Let's Work Together</h2>
+            <p>Have a project in mind or want to discuss potential collaboration opportunities?</p>
+            <a href="/contact" class="btn btn-lg">Get in Touch</a>
+        </div>
+    </div>
+</section>

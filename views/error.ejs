@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <p>An unexpected error occurred!!! 😭😭😭😭</p>
+
+    <% if (process.env.NODE_ENV === 'development' && error) { %>
+        <h2>Error Details (Development Only)</h2>
+        <pre><%= error.stack %></pre>
+    <% } %>
+</body>
+</html>
