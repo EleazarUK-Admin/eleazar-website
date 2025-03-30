@@ -43,12 +43,31 @@
     <nav>
         <div class="container">
             <ul class="nav-links">
-                <li class="<%= activeNav === 'about' ? 'active' : '' %>"><a href="#about">About</a></li>
-                <li class="<%= activeNav === 'experience' ? 'active' : '' %>"><a href="#experience">Experience</a></li>
-                <li class="<%= activeNav === 'education' ? 'active' : '' %>"><a href="#education">Education</a></li>
-                <li class="<%= activeNav === 'certifications' ? 'active' : '' %>"><a href="#certifications">Certifications</a></li>
-                <li class="<%= activeNav === 'skills' ? 'active' : '' %>"><a href="#skills">Skills</a></li>
-                <li class="<%= activeNav === 'contact' ? 'active' : '' %>"><a href="#contact">Contact</a></li>
+                <li class="<%= activeNav === 'about' ? 'active' : '' %>">
+                    <a href="#about" class="scroll-link">About</a>
+                </li>
+                <li class="<%= activeNav === 'experience' ? 'active' : '' %>">
+                    <a href="#experience" class="scroll-link">Experience</a>
+                </li>
+                <li class="<%= activeNav === 'education' ? 'active' : '' %>">
+                    <a href="#education" class="scroll-link">Education</a>
+                </li>
+                <li class="<%= activeNav === 'certifications' ? 'active' : '' %>">
+                    <a href="#certifications" class="scroll-link">Certifications</a>
+                </li>
+                <li class="<%= activeNav === 'skills' ? 'active' : '' %>">
+                    <a href="#skills" class="scroll-link">Skills</a>
+                </li>
+                <li class="<%= activeNav === 'contact' ? 'active' : '' %>">
+                    <a href="#contact" class="scroll-link">Contact</a>
+                </li>
+                <!-- Add these for other actual pages -->
+                <li class="<%= activeNav === 'blog' ? 'active' : '' %>">
+                    <a href="/blog">Blog</a>
+                </li>
+                <li class="<%= activeNav === 'projects' ? 'active' : '' %>">
+                    <a href="/projects">Projects</a>
+                </li>
             </ul>
         </div>
     </nav>
