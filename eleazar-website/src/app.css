@@ -1,0 +1,42 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #FF5200;
+  --color-secondary: #001F0B;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-background: #DDDDDF;
+  
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-body: Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.5;
+  color: var(--color-black);
+  background-color: var(--color-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

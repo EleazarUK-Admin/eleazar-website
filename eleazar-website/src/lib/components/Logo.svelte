@@ -1,0 +1,37 @@
+<script>
+  // Props
+  export let size = 'medium'; // small, medium, large
+  export let variant = 'primary'; // primary, secondary, dark, light
+  
+  // Computed properties
+  $: scale = size === 'small' ? 0.15 : size === 'medium' ? 0.25 : 0.35;
+  $: width = 557 * scale;
+  $: height = 118 * scale;
+  
+  // Color mapping based on variant
+  $: mainColor = 
+    variant === 'primary' ? '#000000' : 
+    variant === 'secondary' ? '#1F3D2B' : 
+    variant === 'dark' ? '#000000' : 
+    '#FFFFFF'; // light variant
+    
+  $: accentColor = variant === 'primary' ? '#FF5200' : mainColor;
+</script>
+
+<svg width={width} height={height} viewBox="0 0 557 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0_1_130)">
+    <path d="M16.68 34.98L0 51.82V99.11L16.36 115.63H62.84L78.87 99.44V88.91H57.82V93.12L52.96 98.14H26.56L21.38 92.8V82.44H79.03V51.83L62.19 34.99H16.68V34.98ZM57.65 67.53H21.38V58.14L26.89 52.47H52.15L57.66 58.14V67.53H57.65Z" fill={mainColor}/>
+    <path d="M114.53 0H93.15V115.63H114.53V0Z" fill={mainColor}/>
+    <path d="M145.96 34.98L129.28 51.82V99.11L145.64 115.63H192.12L208.15 99.44V88.91H187.1V93.12L182.24 98.14H155.84L150.66 92.8V82.44H208.31V51.83L191.47 34.99H145.96V34.98ZM186.93 67.53H150.65V58.14L156.16 52.47H181.42L186.93 58.14V67.53Z" fill={mainColor}/>
+    <path d="M237.12 34.98L221.09 51.17V61.7H242.14V57.49L247 52.47H273.4L278.58 57.81V68.17H220.93V98.78L237.77 115.62H283.28L286.8 112.07L290.51 115.67H299.9V98.85L299.96 98.79V51.5L283.6 34.98H237.12ZM278.57 92.47L273.06 98.14H247.8L242.29 92.47V83.08H278.57V92.47Z" fill={mainColor}/>
+    <path d="M312.19 52.31H355.43V52.63L310.57 99.11V115.63H383.12V98.3H338.27V97.98L383.12 51.5V34.98H312.19V52.31Z" fill={mainColor}/>
+    <path d="M473.31 51.5L456.95 34.98H410.47L394.44 51.17V61.7H415.49V57.49L420.35 52.47H446.75L451.93 57.81V68.17H394.28V98.78L411.12 115.62H456.63L460.23 111.98L464.02 115.66H473.41V79.38H473.31V51.48V51.5ZM451.93 92.47L446.42 98.14H421.16L415.65 92.47V83.08H451.93V92.47Z" fill={mainColor}/>
+    <path d="M542.72 53.12V34.98H519.72L506.77 48.42V34.98H487.01V115.63H508.39V69.31L524.09 53.12H542.72Z" fill={mainColor}/>
+    <path d="M551.24 102.85H525.98L520.47 108.52V117.91H556.75V108.52L551.24 102.85Z" fill={accentColor}/>
+  </g>
+  <defs>
+    <clipPath id="clip0_1_130">
+      <rect width="556.75" height="117.91" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
