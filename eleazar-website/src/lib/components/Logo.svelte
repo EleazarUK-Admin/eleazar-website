@@ -10,7 +10,7 @@
   
   // Color mapping based on variant
   $: mainColor = 
-    variant === 'primary' ? '#000000' : 
+    variant === 'primary' ? '#F7532E' : 
     variant === 'secondary' ? '#1F3D2B' : 
     variant === 'dark' ? '#000000' : 
     '#FFFFFF'; // light variant
