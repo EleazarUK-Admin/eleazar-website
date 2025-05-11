@@ -1,44 +1,35 @@
 <script>
-  import Logo from '../components/Logo.svelte';
-  import Icon from '../components/Icon.svelte';
-  import Button from '../components/Button.svelte';
+    import { link } from 'svelte-spa-router';
+    import Logo from '../components/Logo.svelte';
+    import Icon from '../components/Icon.svelte';
+    import Button from '../components/Button.svelte';
+    
+    const logoVariants = [
+      { variant: 'primary', label: 'Primary' },
+      { variant: 'secondary', label: 'Secondary' },
+      { variant: 'dark', label: 'Dark' },
+      { variant: 'light', label: 'Light', darkBg: true }
+    ];
+    
+    const logoSizes = [
+      { size: 'small', label: 'Small' },
+      { size: 'medium', label: 'Medium' },
+      { size: 'large', label: 'Large' }
+    ];
+    
+    const buttonVariants = [
+      { variant: 'primary', label: 'Primary' },
+      { variant: 'secondary', label: 'Secondary' },
+      { variant: 'outline', label: 'Outline' }
+    ];
+    
+    const buttonSizes = [
+      { size: 'small', label: 'Small' },
+      { size: 'medium', label: 'Medium' },
+      { size: 'large', label: 'Large' }
+    ];
+  </script>
   
-  // State to toggle between component showcase and homepage
-  let showComponentShowcase = false;
-  
-  const logoVariants = [
-    { variant: 'primary', label: 'Primary' },
-    { variant: 'secondary', label: 'Secondary' },
-    { variant: 'dark', label: 'Dark' },
-    { variant: 'light', label: 'Light', darkBg: true }
-  ];
-  
-  const logoSizes = [
-    { size: 'small', label: 'Small' },
-    { size: 'medium', label: 'Medium' },
-    { size: 'large', label: 'Large' }
-  ];
-  
-  const buttonVariants = [
-    { variant: 'primary', label: 'Primary' },
-    { variant: 'secondary', label: 'Secondary' },
-    { variant: 'outline', label: 'Outline' }
-  ];
-  
-  const buttonSizes = [
-    { size: 'small', label: 'Small' },
-    { size: 'medium', label: 'Medium' },
-    { size: 'large', label: 'Large' }
-  ];
-</script>
-
-{#if showComponentShowcase}
-  <div class="view-toggle">
-    <Button variant="outline" size="small" on:click={() => showComponentShowcase = false}>
-      View Website
-    </Button>
-  </div>
-
   <main class="showcase">
     <section class="hero">
       <h1>Eleazar Brand System</h1>
@@ -47,8 +38,11 @@
         <span class="timestamp">v2.0.0</span>
         <span class="metadata">// COMPONENT_LIBRARY</span>
       </div>
+      <a href="/" use:link>
+        <Button variant="outline">Back to Home</Button>
+      </a>
     </section>
-
+  
     <section class="component-section">
       <h2>Logo Variations</h2>
       <div class="component-grid">
@@ -60,7 +54,7 @@
         {/each}
       </div>
     </section>
-
+  
     <section class="component-section">
       <h2>Logo Sizes</h2>
       <div class="component-grid">
@@ -72,7 +66,7 @@
         {/each}
       </div>
     </section>
-
+  
     <section class="component-section">
       <h2>Icon Variations</h2>
       <div class="component-grid">
@@ -84,7 +78,7 @@
         {/each}
       </div>
     </section>
-
+  
     <section class="component-section">
       <h2>Button Variants</h2>
       <div class="component-grid">
@@ -96,7 +90,7 @@
         {/each}
       </div>
     </section>
-
+  
     <section class="component-section">
       <h2>Button Sizes</h2>
       <div class="component-grid">
@@ -108,7 +102,7 @@
         {/each}
       </div>
     </section>
-
+  
     <section class="component-section">
       <h2>Color Palette</h2>
       <div class="color-grid">
@@ -149,7 +143,7 @@
         </div>
       </div>
     </section>
-
+  
     <section class="component-section">
       <h2>Typography</h2>
       <div class="typography-showcase">
@@ -172,170 +166,157 @@
       </div>
     </section>
   </main>
-{:else}
-  <div class="view-toggle">
-    <Button variant="outline" size="small" on:click={() => showComponentShowcase = true}>
-      View Component Showcase
-    </Button>
-  </div>
-{/if}
-
-<style>
-  .view-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
-
-  .showcase {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
   
-  .hero {
-    padding: 4rem 0;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-  
-  .hero p {
-    font-size: 1.125rem;
-    color: var(--color-gray-dark);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-  }
-  
-  .version-info {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    color: var(--color-primary);
-  }
-  
-  .component-section {
-    margin-bottom: 4rem;
-  }
-  
-  h2 {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-  }
-  
-  .component-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .component-card {
-    padding: 1.5rem;
-    border: 1px solid var(--color-gray-lighter);
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 150px;
-    gap: 1rem;
-    background: white;
-    transition: all 0.2s ease;
-  }
-  
-  .component-card:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dark-bg {
-    background-color: #000;
-    color: #fff;
-  }
-  
-  .label {
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--color-gray-dark);
-    font-family: var(--font-mono);
-  }
-  
-  .dark-bg .label {
-    color: var(--color-gray-lighter);
-  }
-  
-  .color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .color-card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid var(--color-gray-lighter);
-  }
-  
-  .color-sample {
-    height: 100px;
-    width: 100%;
-  }
-  
-  .color-info {
-    padding: 1rem;
-    background: white;
-  }
-  
-  .color-name {
-    display: block;
-    font-weight: 500;
-    font-family: var(--font-heading);
-  }
-  
-  .color-value {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    color: var(--color-gray-dark);
-  }
-  
-  .typography-showcase {
-    display: grid;
-    gap: 2rem;
-  }
-  
-  .type-sample {
-    padding: 1.5rem;
-    border: 1px solid var(--color-gray-lighter);
-    border-radius: 4px;
-    background: white;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
+  <style>
     .showcase {
-      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
     }
     
     .hero h1 {
-      font-size: 2rem;
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
     }
     
-    .component-grid,
-    .color-grid {
-      grid-template-columns: 1fr;
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--color-gray-dark);
+      max-width: 600px;
+      margin: 0 auto 2rem;
     }
-  }
-</style>
+    
+    .version-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--color-primary);
+      margin-bottom: 2rem;
+    }
+    
+    .component-section {
+      margin-bottom: 4rem;
+    }
+    
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+    
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .component-card {
+      padding: 1.5rem;
+      border: 1px solid var(--color-gray-lighter);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      gap: 1rem;
+      background: white;
+      transition: all 0.2s ease;
+    }
+    
+    .component-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark-bg {
+      background-color: #000;
+      color: #fff;
+    }
+    
+    .label {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-gray-dark);
+      font-family: var(--font-mono);
+    }
+    
+    .dark-bg .label {
+      color: var(--color-gray-lighter);
+    }
+    
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .color-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--color-gray-lighter);
+    }
+    
+    .color-sample {
+      height: 100px;
+      width: 100%;
+    }
+    
+    .color-info {
+      padding: 1rem;
+      background: white;
+    }
+    
+    .color-name {
+      display: block;
+      font-weight: 500;
+      font-family: var(--font-heading);
+    }
+    
+    .color-value {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      color: var(--color-gray-dark);
+    }
+    
+    .typography-showcase {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    .type-sample {
+      padding: 1.5rem;
+      border: 1px solid var(--color-gray-lighter);
+      border-radius: 4px;
+      background: white;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .showcase {
+        padding: 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .component-grid,
+      .color-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>

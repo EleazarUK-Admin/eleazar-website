@@ -1,5 +1,5 @@
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Exo:wght@200;700&family=PT+Mono&display=swap');
 
 /* Reset and base styles */
 * {
@@ -9,34 +9,160 @@
 }
 
 :root {
+  /* Brand colors from guidelines */
   --color-primary: #FF5200;
+  --color-primary-light: #FF9166;
   --color-secondary: #001F0B;
+  --color-secondary-light: #0A1910;
   --color-black: #000000;
   --color-white: #FFFFFF;
-  --color-background: #DDDDDF;
+  --color-gray-dark: #333333;
+  --color-gray-light: #DDDDDF;
+  --color-gray-lighter: #E5E5E5;
   
-  --font-display: 'Chakra Petch', sans-serif;
-  --font-body: Arial, sans-serif;
+  /* Typography from guidelines */
+  --font-display: 'Chakra Petch', sans-serif; /* For titles and hero sections */
+  --font-heading: 'Exo', sans-serif; /* For main headings */
+  --font-body: 'Exo', sans-serif; /* For body text */
+  --font-mono: 'PT Mono', monospace; /* For timestamps and metadata */
+  
+  /* Weights */
+  --font-weight-heading: 700;
+  --font-weight-light: 200;
 }
 
 body {
   font-family: var(--font-body);
+  font-weight: var(--font-weight-light);
   line-height: 1.5;
   color: var(--color-black);
-  background-color: var(--color-background);
+  background-color: var(--color-gray-light);
 }
 
+/* Typography hierarchy */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  line-height: 1.2;
+}
+
+/* Display heading for hero sections */
+.hero h1 {
   font-family: var(--font-display);
-  font-weight: bold;
+  font-weight: var(--font-weight-heading);
+}
+
+/* Timestamps and metadata */
+.timestamp, .metadata, .caption {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-gray-dark);
 }
 
 a {
   text-decoration: none;
   color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-light);
 }
 
 img {
   max-width: 100%;
   height: auto;
 }
+
+/* Utility classes for backgrounds */
+.bg-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.bg-dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Glitch effect styling - matches brand image style */
+.glitch {
+  position: relative;
+  animation: glitch 8s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-2 0.3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  animation: glitch-3 0.3s infinite linear alternate-reverse;
+}
+
+.hero-visual-placeholder {
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(45deg, var(--color-secondary), var(--color-black));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-family: var(--font-mono);
+}
+
+.hero-visual-placeholder::after {
+  content: '// IMAGE_PLACEHOLDER';
+  opacity: 0.7;
+}
+
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+
+@keyframes glitch-2 {
+  0% {
+    clip-path: inset(40% 0 60% 0);
+    transform: translate(-2px, 0);
+  }
+  100% {
+    clip-path: inset(58% 0 42% 0);
+    transform: translate(2px, 0);
+  }
+}
+
+@keyframes glitch-3 {
+  0% {
+    clip-path: inset(5% 0 95% 0);
+    transform: translate(2px, 0);
+  }
+  100% {
+    clip-path: inset(15% 0 85% 0);
+    transform: translate(-2px, 0);
+  }
+}
+
