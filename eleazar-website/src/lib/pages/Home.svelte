@@ -111,7 +111,7 @@
         
         <div class="hero-visual">
           <GlitchImage 
-            src="/src/assets/backgrounds/background-2.png" 
+            src="/backgrounds/background-2.png" 
             alt="Eleazar digital visualization"
             intensity="medium"
             glitchType="scanlines"
@@ -146,7 +146,7 @@
       </div>
       <div class="about-image">
         <GlitchImage 
-          src="src/assets/backgrounds/background-3.png" 
+          src="/backgrounds/background-3.png" 
           alt="About Eleazar"
           intensity="low"
           glitchType="chromatic"

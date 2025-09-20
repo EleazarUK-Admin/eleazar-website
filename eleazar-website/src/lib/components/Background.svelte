@@ -4,7 +4,7 @@
     export let height = '400px';
     
     // Create the path based on the image name
-    $: bgPath = `../../assets/backgrounds/${image}`;
+    $: bgPath = `/backgrounds/${image}`;
   </script>
   
   <div class="background" style="background-image: url({bgPath}); min-height: {height};">

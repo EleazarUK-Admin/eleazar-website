@@ -1,47 +1,146 @@
-# Svelte + Vite
+# Eleazar Website
 
-This template should help get you started developing with Svelte in Vite.
+> Arquitectura para el pensamiento algorítmico
 
-## Recommended IDE Setup
+A modern, responsive website built with Svelte and Vite, featuring a futuristic design with glitch effects, animated backgrounds, and a comprehensive component system.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## 🚀 Features
 
-## Need an official Svelte framework?
+- **Modern Design System**: Custom theme with Eleazar brand colors and typography
+- **Interactive Components**: Glitch effects, animated backgrounds, and dynamic content
+- **Responsive Layout**: Mobile-first design that works across all devices
+- **Component Architecture**: Modular, reusable Svelte components
+- **Performance Optimized**: Built with Vite for fast development and production builds
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## 🛠️ Tech Stack
 
-## Technical considerations
+- **Frontend**: Svelte 4
+- **Build Tool**: Vite
+- **Styling**: CSS Custom Properties with theme system
+- **Icons**: Custom SVG components
+- **Development**: Hot Module Replacement (HMR)
 
-**Why use this over SvelteKit?**
+## 📁 Project Structure
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
 ```
+src/
+├── lib/
+│   ├── components/          # Reusable UI components
+│   │   ├── Background.svelte
+│   │   ├── Button.svelte
+│   │   ├── GlitchImage.svelte
+│   │   └── ...
+│   ├── layout/             # Layout components
+│   │   ├── Header.svelte
+│   │   └── Footer.svelte
+│   └── pages/              # Page components
+│       ├── Home.svelte
+│       └── Showcase.svelte
+├── styles/
+│   └── theme.js            # Theme configuration
+└── assets/                 # Static assets
+```
+
+## 🎨 Theme System
+
+The project uses a comprehensive theme system defined in `src/styles/theme.js`:
+
+- **Colors**: Primary orange (#FF5200), secondary green (#1F3D2B)
+- **Typography**: Chakra Petch Bold for headings, Arial for body text
+- **Spacing**: Consistent spacing scale
+- **Breakpoints**: Mobile-first responsive design
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/eleazar-website.git
+cd eleazar-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist/` directory.
+
+## 🎯 Components
+
+### Core Components
+
+- **Button**: Customizable button with multiple variants and sizes
+- **Background**: Dynamic background component with image support
+- **GlitchImage**: Image component with glitch effects
+- **Logo**: Brand logo with multiple variants
+- **Icon**: SVG icon system
+
+### Layout Components
+
+- **Header**: Navigation header with transparency support
+- **Footer**: Comprehensive footer with links and metadata
+- **Layout**: Main layout wrapper
+
+## 🎨 Design Features
+
+- **Glitch Effects**: Cyberpunk-inspired visual effects
+- **Animated Backgrounds**: Dynamic background images with overlays
+- **Digital Typography**: Futuristic font styling
+- **Responsive Design**: Mobile-first approach
+- **Interactive Elements**: Hover effects and animations
+
+## 📱 Responsive Design
+
+The website is fully responsive with breakpoints at:
+- Mobile: 480px
+- Tablet: 768px
+- Desktop: 992px
+- Large Desktop: 1200px
+
+## 🔧 Development
+
+### Recommended IDE Setup
+
+[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run check` - Run Svelte checks
+
+## 📄 License
+
+© 2025 Eleazar. All rights reserved.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+---
+
+*Built with ❤️ using Svelte and Vite*
